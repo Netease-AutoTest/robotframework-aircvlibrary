@@ -114,7 +114,7 @@ class AircvLibrary(object):
             index -= 1
         re = result[index]
         self._mobilelib._info(re)
-        self.click_a_point(re['result'][0], re['result'][1])
+        self._mobilelib.click_a_point(re['result'][0], re['result'][1])
         return re
 
     def mobile_click_image(self, target, index=1):
@@ -160,7 +160,7 @@ class AircvLibrary(object):
                 if self._coordinate_cmp(in_rect[3], result_rect[3]):  # right-down
                     try:
                         if 'click' in phase_type:
-                            self.click_a_point(result[i]['result'][0], result[i]['result'][1])
+                            self._mobilelib.click_a_point(result[i]['result'][0], result[i]['result'][1])
                         elif 'coordinate' in phase_type:
                             return result[i]['result'][0], result[i]['result'][1]
                     except Exception, e:
