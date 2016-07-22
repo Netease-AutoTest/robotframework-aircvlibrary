@@ -5,6 +5,7 @@ from time import sleep, time
 import aircv as ac
 from robot.libraries.BuiltIn import BuiltIn
 
+global CUSTOMER_LIBRARY_NAME
 CUSTOMER_LIBRARY_NAME = 'AppiumLibrary'
 
 
