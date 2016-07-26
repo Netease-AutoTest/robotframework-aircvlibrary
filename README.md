@@ -1,5 +1,5 @@
 # robotframework aircvlibrary
-[![Documentation Status](https://readthedocs.org/projects/robotframework-aircvlibrary/badge/?version=latest)](http://robotframework-aircvlibrary.readthedocs.io/en/latest/?badge=latest)   
+[![Documentation Status](https://readthedocs.org/projects/robotframework-aircvlibrary/badge/?version=latest)](http://robotframework-aircvlibrary.readthedocs.io/en/latest/?badge=latest)    [![Build Status](https://travis-ci.org/lucyking/robotframework-aircvlibrary.svg?branch=master)](https://travis-ci.org/lucyking/robotframework-aircvlibrary)    
 Base on **aircv** and **opencv** library,wrap for **RobotFramework**.  
 Click target screen area base on OpenCV algorithm.
 
