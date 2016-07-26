@@ -1,2 +1,2 @@
 aircv>=1.4.4
-robotframework
+robotframework>=2.9.2
