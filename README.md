@@ -4,7 +4,7 @@ Base on **aircv** and **opencv** library,wrap for **RobotFramework**.
 Click target image area base on OpenCV algorithm.
 
 ## install
-```pip install robotfarmework-aircvlibrary```
+```pip install robotframework-aircvlibrary```
 
 ## keywords
 - **mobile_click_image**(_target, index=1_)  
@@ -12,3 +12,6 @@ Click target image area base on OpenCV algorithm.
 
 - **mobile_click_in**(_parent_image, sub_image_)
 > click sub_area in special parent_area.   
+
+- **mobile_get_images_location**(_target, index=1_)
+> return the target img coordinate (_x, y_)
