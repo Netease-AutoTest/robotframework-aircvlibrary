@@ -1,0 +1,20 @@
+language: python
+python:
+- '2.7'
+script:
+- echo Mock Test
+deploy:
+  - provider: pypi
+    user: lucyking
+    password:
+      secure: WVKuR7zp0t6HMacH48jJIQGSD80123ITTIuSU+MMT6oC4nCz7qFcgPY3FWCDXWBtOo/yBV1/qJ/nYT4SibWrKIotQKNy6b6FohdBjMK2XLfrcBiYD5Y7sSacfNdfM/90wqJI8ZoQC0weN1S8v7Egfe0E5hEclyL1nkvzpiuS8QaNJW8QtLz+6W/BnXYRg8M/Ua1PAAFvwOUy7GeuXVEDr5eTy2v2S6Y5A9kArI1rVFojYaZxyx7U5H/bdUFcNEftqKzsBUzD3MJYxjEnwxxqu2zCeaVt/iHTtLGJL6rzw0z6MWR/cvF3bcn2LllaWDyFPPEX0YREvco1lIhxuUKtzk+XxB2Zw+uADDP5hZNEIEp1G5toM9B5GrRzzlPeh50kqEg8aGm4GeoXcOx/ehKA+B71tonw0c/hM078tQ62ZiirLViz687PNCgRB/4rcZLxifOIfw6Haut1LF5YFMp9cWZHZulc8CkAktCoa7iF+oUuYjf1W+A6/g/7R7Hnk32keOHh/6kPuvRqQ30qYEKohVlAhQA6RAJeXruRjkPoAWRur30pJXOFTnq8xLbcqSukrFkTs6CdJJXb83YFaPWzf6N9eE8idZGKd6yPbQCs/dNm7t2It611RXamLcuf/xA3PRjEeX2Wh3+8WQ6d0HV9VSDHhSWnVsdK0aDnCCNcctg=
+    distributions: sdist bdist_wheel
+  - provider: pypi
+    user: lucyking
+    password:
+      secure: WVKuR7zp0t6HMacH48jJIQGSD80123ITTIuSU+MMT6oC4nCz7qFcgPY3FWCDXWBtOo/yBV1/qJ/nYT4SibWrKIotQKNy6b6FohdBjMK2XLfrcBiYD5Y7sSacfNdfM/90wqJI8ZoQC0weN1S8v7Egfe0E5hEclyL1nkvzpiuS8QaNJW8QtLz+6W/BnXYRg8M/Ua1PAAFvwOUy7GeuXVEDr5eTy2v2S6Y5A9kArI1rVFojYaZxyx7U5H/bdUFcNEftqKzsBUzD3MJYxjEnwxxqu2zCeaVt/iHTtLGJL6rzw0z6MWR/cvF3bcn2LllaWDyFPPEX0YREvco1lIhxuUKtzk+XxB2Zw+uADDP5hZNEIEp1G5toM9B5GrRzzlPeh50kqEg8aGm4GeoXcOx/ehKA+B71tonw0c/hM078tQ62ZiirLViz687PNCgRB/4rcZLxifOIfw6Haut1LF5YFMp9cWZHZulc8CkAktCoa7iF+oUuYjf1W+A6/g/7R7Hnk32keOHh/6kPuvRqQ30qYEKohVlAhQA6RAJeXruRjkPoAWRur30pJXOFTnq8xLbcqSukrFkTs6CdJJXb83YFaPWzf6N9eE8idZGKd6yPbQCs/dNm7t2It611RXamLcuf/xA3PRjEeX2Wh3+8WQ6d0HV9VSDHhSWnVsdK0aDnCCNcctg=
+    distributions: sdist bdist_wheel
+    on:
+      tags: true
+after_deploy:
+- echo DONE
