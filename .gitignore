@@ -1,2 +1,4 @@
 *.pyc
 .idea
+*_build*
+*egg-info*
