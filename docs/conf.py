@@ -355,5 +355,5 @@ class Mock(object):
             return Mock()
 
 
-MOCK_MODULES = ['cv2', 'numpy']
+MOCK_MODULES = ['cv2', 'numpy', 'robot' ,'robot.libraries','robot.libraries.BuiltIn', 'BuiltIn']
 sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
