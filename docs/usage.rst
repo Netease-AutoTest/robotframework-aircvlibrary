@@ -1,19 +1,6 @@
 MobileKeywords methods
 --------------------------
 
-.. autoclass:: AircvLibrary
+.. autoclass:: AircvLibrary.AircvLibrary
     :members:
-
-
-ImageKeywords methods
---------------------------
-
-.. autoclass:: AircvLibrary
-    :members:
-
-
-Elemetn methods
---------------------------
-
-.. autoclass:: AircvLibrary
-    :members:
+    
