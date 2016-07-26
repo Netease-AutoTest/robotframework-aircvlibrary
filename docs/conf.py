@@ -29,9 +29,9 @@ print __pkg__
 print sys.path
 sys.path.insert(0, __pkg__)
 print sys.path
-sys.path.insert(0, os.path.join(__pkg__,"../"))
+sys.path.insert(0, os.path.join(__pkg__,"./"))
 print sys.path
-sys.path.insert(0, os.path.join(__pkg__,"../src"))
+sys.path.insert(0, os.path.join(__pkg__,"./src"))
 print sys.path
 # -- General configuration ------------------------------------------------
 
