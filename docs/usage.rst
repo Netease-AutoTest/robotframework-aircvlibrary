@@ -1,14 +1,14 @@
 MobileKeywords methods
 --------------------------
 
-.. autoclass:: module
+.. autoclass:: AircvLibrary
     :members:
 
 
 ImageKeywords methods
 --------------------------
 
-.. autoclass:: src.AircvLibrary
+.. autoclass:: AircvLibrary
     :members:
 
 
