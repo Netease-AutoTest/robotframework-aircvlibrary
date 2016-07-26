@@ -15,3 +15,12 @@ Click target image area base on OpenCV algorithm.
 
 - **mobile_get_images_location**(_target, index=1_)
 > return the target img coordinate (_x, y_)
+
+- [More tricks](http://robotframework-aircvlibrary.readthedocs.io/en/latest/usage.html)
+
+
+## Todo
+1. Add Web/ios support.  
+2. Separate _match_ and _click_ method.<br>
+due to diff platform depend on diff driver(appium/selenium2library).<br>
+3. This lib may just return (_x,y_), call click method by yourself. 
