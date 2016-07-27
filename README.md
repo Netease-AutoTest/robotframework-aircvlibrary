@@ -1,5 +1,5 @@
 # robotframework aircvlibrary
-[![Documentation Status](https://readthedocs.org/projects/robotframework-aircvlibrary/badge/?version=latest)](http://robotframework-aircvlibrary.readthedocs.io/en/latest/?badge=latest)    [![Build Status](https://travis-ci.org/lucyking/robotframework-aircvlibrary.svg?branch=master)](https://travis-ci.org/lucyking/robotframework-aircvlibrary)  [![PyPI](https://img.shields.io/pypi/dm/robotframework-aircvlibrary.svg?maxAge=2592000)]()  
+[![Documentation Status](https://readthedocs.org/projects/robotframework-aircvlibrary/badge/?version=latest)](http://robotframework-aircvlibrary.readthedocs.io/en/latest/?badge=latest)    [![Build Status](https://travis-ci.org/Netease-AutoTest/robotframework-aircvlibrary.svg?branch=master)](https://travis-ci.org/Netease-AutoTest/robotframework-aircvlibrary)  
 Base on **aircv** and **opencv** library,wrap for **RobotFramework**.  
 Click target screen area base on OpenCV algorithm.
 
