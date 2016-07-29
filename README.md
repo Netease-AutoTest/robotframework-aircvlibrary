@@ -3,6 +3,8 @@
 Base on **aircv** and **opencv** library,wrap for **RobotFramework**.  
 Click target screen area base on OpenCV algorithm.
 
+## discuss 
+[![Gitter](https://img.shields.io/gitter/room/Netease-AutoTest/nw.js.svg?maxAge=2592000)](https://gitter.im/Netease-AutoTest?source=orgpage)
 ## install
 ```pip install robotframework-aircvlibrary```
 
