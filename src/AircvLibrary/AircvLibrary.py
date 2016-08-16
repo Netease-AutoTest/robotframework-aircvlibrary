@@ -4,9 +4,13 @@ import traceback
 from time import sleep, time
 import aircv as ac
 from robot.libraries.BuiltIn import BuiltIn
+import collections
+from PIL import Image
+from xml.etree import cElementTree as ET
 
 global CUSTOMER_LIBRARY_NAME
 CUSTOMER_LIBRARY_NAME = 'AppiumLibrary'
+Display = collections.namedtuple('Display', ['width', 'height'])
 
 
 class AircvLibrary(object):
@@ -80,6 +84,7 @@ class AircvLibrary(object):
     def mobile_image_listdir(self):
         """show the target image directory's content
         """
+        self._get_appium_handle()
         self._mobilelib._info("*" * 6)
         if self.img_path:
             self._mobilelib._info(self.img_path)
@@ -109,13 +114,22 @@ class AircvLibrary(object):
         im_source = ac.imread(self._screen.decode('utf-8').encode('gbk'))
         im_search = ac.imread(target.decode('utf-8').encode('gbk'))
         result = ac.find_all_template(im_source, im_search, self.TH)
+
+        result = sorted(result, key=lambda x: (x['result'][1], x['result'][0]))
+
         if index == 0:
             index = len(result) - 1
         else:
             index -= 1
         re = result[index]
         self._mobilelib._info(re)
-        self._mobilelib.click_a_point(re['result'][0], re['result'][1])
+
+        _scale = self.scale()
+        if self._mobilelib._is_android():
+            self._mobilelib.click_a_point(re['result'][0], re['result'][1])
+        if self._mobilelib._is_ios():
+            self._mobilelib.click_a_point(re['result'][0]/_scale, re['result'][1]/_scale)
+
         return re
 
     def mobile_click_image(self, target, index=1):
@@ -161,9 +175,17 @@ class AircvLibrary(object):
                 if self._coordinate_cmp(in_rect[3], result_rect[3]):  # right-down
                     try:
                         if 'click' in phase_type:
-                            self._mobilelib.click_a_point(result[i]['result'][0], result[i]['result'][1])
+                            if self._mobilelib._is_android():
+                                self._mobilelib.click_a_point(result[i]['result'][0], result[i]['result'][1])
+                            if self._mobilelib._is_ios():
+                                _scale = self.scale()
+                                self._mobilelib.click_a_point(result[i]['result'][0]/_scale, result[i]['result'][1]/_scale)
                         elif 'coordinate' in phase_type:
-                            return result[i]['result'][0], result[i]['result'][1]
+                            if self._mobilelib._is_android():
+                                return result[i]['result'][0], result[i]['result'][1]
+                            if self._mobilelib._is_ios():
+                                _scale = self.scale()
+                                return result[i]['result'][0]/_scale, result[i]['result'][1]/_scale
                     except Exception, e:
                         print '[xxx]: %s ' % traceback.format_exc()
         # Todo : return valid value
@@ -197,13 +219,19 @@ class AircvLibrary(object):
         if 'num' in parse_type:
             return len(result)
         elif 'location' in parse_type:
+            result = sorted(result, key=lambda x: (x['result'][1], x['result'][0]))
             if index == 0:
                 index = len(result) - 1
             else:
                 index -= 1
             re = result[index]
             self._mobilelib._info(re)
-            return re['result'][0], re['result'][1]
+
+            if self._mobilelib._is_android():
+                return re['result'][0], re['result'][1]
+            if self._mobilelib._is_ios():
+                _scale = self.scale()
+                return re['result'][0]/_scale, re['result'][1]/_scale
 
     def mobile_screen_should_contain(self, target):
         """assert current  screen should contain target image
@@ -236,3 +264,14 @@ class AircvLibrary(object):
         else:
             return False
         return True
+
+    def scale(self):
+        img = Image.open(self._screen)
+        display = Display(*sorted(img.size))
+        page = self._mobilelib.get_source()
+        tree = ET.ElementTree(ET.fromstring(page))
+        elem_of_UIAApplication = tree.find('UIAApplication')
+        _width = elem_of_UIAApplication.attrib['width']
+        _height = elem_of_UIAApplication.attrib['height']
+        _scale = min(display) / min(int(_width), int(_height))
+        return _scale
