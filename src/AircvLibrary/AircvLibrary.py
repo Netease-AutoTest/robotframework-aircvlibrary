@@ -124,10 +124,10 @@ class AircvLibrary(object):
         re = result[index]
         self._mobilelib._info(re)
 
-        _scale = self.scale()
         if self._mobilelib._is_android():
             self._mobilelib.click_a_point(re['result'][0], re['result'][1])
         if self._mobilelib._is_ios():
+            _scale = self.scale()
             self._mobilelib.click_a_point(re['result'][0]/_scale, re['result'][1]/_scale)
 
         return re
